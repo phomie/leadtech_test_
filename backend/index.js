@@ -3,7 +3,6 @@ const app = express();
 const cors = require("cors");
 //const multer = require("multer");
 const path = require("path");
-const fs = require("fs");
 const corsOptions = {};
 app.use(cors());
 app.use(express.json());
@@ -22,8 +21,14 @@ function isValidUUID(str) {
 app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/events", async (req, res) => {
+  const origin = req.get("Origin"); // cross-origin
+  console.log("Origin header:", origin);
+
   const payload = req.body;
-  console.log("request body:", req.body);
+  console.log("request body of index.js:", req.body);
+  if(origin !== "http://localhost:3000"){
+    
+
   const requiredFields = [
     "id",
     "user_id",
@@ -56,6 +61,7 @@ app.post("/events", async (req, res) => {
     return res.status(400).json({ error: "value must be a number" });
   }
 
+  }
   const transformed = {
     id: payload.event_id,
     user: payload.user_id,
@@ -66,7 +72,7 @@ app.post("/events", async (req, res) => {
     source: "internal martech",
   };
 
-  //console.log("Transew:", transformed);
+console.log("Transew:", transformed);
   const API_URL = "http://localhost:5003/v1/conversions";
   const API_KEY = "YOUR_API_KEY";
   let attempts = 0;
@@ -107,7 +113,7 @@ app.post("/events", async (req, res) => {
         await new Promise((r) => setTimeout(r, delay));
       } else {
         responseData = await response.json();
-        const latency = Date.now() - startTime;
+        const latency = Date.now() - start;
         console.log({
           request_id: payload.event_id,
           status: responseData?.status || responseData?.error || "unknown",

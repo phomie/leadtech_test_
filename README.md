@@ -61,3 +61,39 @@ This backend service is part of the LeadTech Test project. It consists of two No
 | sendtheobj.py   | -----> | index.js   | -----> | fakapiendpoint.js    |
 | (Python Script) |        | (Node.js)  |        | (Node.js Fake API)   |
 +-----------------+        +------------+        +----------------------+
+
+
+# Fullstack Test Setup
+
+## Frontend
+
+1. Download and install the app and dependencies of **`meine-anwendung`**.
+2. Go into the **`server`** folder:
+   - Initialize the packages
+   - Install the dependencies
+3. Open a terminal and **start the server**.
+4. Open a second terminal and start the app with:
+   ```bash
+   npm start
+
+5. Go into the backend folder.
+
+6. Start the backend files in separate terminals:
+   node index.js
+   node fakeapiendpoint.js
+
+7. Open your browser and use this URL:  
+
+      http://localhost:3000/?utm_source=google&utm_campaign=testcampaign&utm_medium=cpc&utm_content=ad12134&click_id=12345
+      
+8. On the frontend:
+
+    Check the consent box.
+    Paste an email address into the field.
+    Push the submit button
+
+9. Testing Notes
+  - I am testing in the index.js file the origin of the request.
+  - The background of my testing on origin and skipping the validation is because of different types of objects.
+  - I wasn’t sure what the purpose was of sending differently structured objects to the fake API endpoint.
+  - Now I can be sure both tasks are working. 🙂

@@ -4,8 +4,8 @@ const app = express();
 app.use(express.json());
 
 app.post("/v1/conversions", (req, res) => {
-  // console.log("req.headers:", req.headers);
-  // console.log("req.body:", req.body);
+   //console.log("req.headers:", req.headers);
+   console.log("req.body:", req.body);
 
   if (req.body) {
     const response = {
