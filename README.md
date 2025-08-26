@@ -76,11 +76,9 @@ This backend service is part of the LeadTech Test project. It consists of two No
    ```bash
    npm start
 
-5. Go into the backend folder.
-
-6. Start the backend files in separate terminals:
-   node index.js
-   node fakeapiendpoint.js
+5. Go into the backend folder and start the backend files in separate terminals:
+   - node index.js
+   - node fakeapiendpoint.js
 
 7. Open your browser and use this URL:  
 
@@ -88,9 +86,9 @@ This backend service is part of the LeadTech Test project. It consists of two No
       
 8. On the frontend:
 
-    Check the consent box.
-    Paste an email address into the field.
-    Push the submit button
+    - Check the consent box.
+    - Paste an email address into the field.
+    - Push the submit button
 
 9. Testing Notes
   - I am testing in the index.js file the origin of the request.
