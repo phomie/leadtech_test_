@@ -29,7 +29,7 @@ roas_d7 = total_revenue_d7 / total_cost_d7
 
 ---
 
-# LeadTech Test - Backend Service
+#  Backend Service
 
 This backend service is part of the LeadTech Test project. It consists of two Node.js servers and a Python client script to send task-specific objects.
 
