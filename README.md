@@ -27,3 +27,27 @@ This SQL query calculates user revenue, campaign LTV, campaign ROAS, and top-per
 
 ```sql
 roas_d7 = total_revenue_d7 / total_cost_d7
+
+
+
+## ** LeadTech Test - Backend Service**
+
+This backend service is part of the LeadTech Test project. It consists of two Node.js servers and a Python client script to send task-specific objects.
+
+---
+
+## **Overview**
+
+- `index.js` → Main backend server  
+- `fakapiendpoint.js` → Fake API endpoint server  
+- `sendtheobj.py` → Python script that sends objects first to `index.js` and then forwards to `fakapiendpoint.js`
+
+**Flow:**
+
+```text
+sendtheobj.py → index.js → fakapiendpoint.js
+
++-----------------+        +------------+        +----------------------+
+| sendtheobj.py   | -----> | index.js   | -----> | fakapiendpoint.js    |
+| (Python Script) |        | (Node.js)  |        | (Node.js Fake API)   |
++-----------------+        +------------+        +----------------------+
