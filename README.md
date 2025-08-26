@@ -28,25 +28,39 @@ This SQL query calculates user revenue, campaign LTV, campaign ROAS, and top-per
 ```sql
 roas_d7 = total_revenue_d7 / total_cost_d7
 
-
-
-## ** LeadTech Test - Backend Service**
+# LeadTech Test - Backend Service
 
 This backend service is part of the LeadTech Test project. It consists of two Node.js servers and a Python client script to send task-specific objects.
 
 ---
 
-## **Overview**
+## **Overview of the Backend**
 
-- `index.js` → Main backend server  
-- `fakapiendpoint.js` → Fake API endpoint server  
-- `sendtheobj.py` → Python script that sends objects first to `index.js` and then forwards to `fakapiendpoint.js`
+### 1. Main Server (`index.js`)
+- Receives objects from `sendtheobj.py`.  
+- Processes the objects according to task requirements.  
+- Forwards the objects to the fake API server (`fakapiendpoint.js`).  
+- Logs request details, status, attempts, and latency.
 
-**Flow:**
+### 2. Fake API Server (`fakapiendpoint.js`)
+- Simulates an external API endpoint.  
+- Randomly responds with:
+  - `202 Accepted` → object accepted  
+  - `400 Invalid Payload` → do not retry  
+  - `429 Rate Limited` → retry allowed  
+  - `5xx Upstream Error` → retry allowed  
+- Used to test retry and idempotency behavior.
+
+### 3. Python Client (`sendtheobj.py`)
+- Sends objects to `index.js`.  
+- Automatically forwards the object to `fakapiendpoint.js`.  
+- Object must follow the task requirements.  
+
+---
+
+## **Flow Diagram**
 
 ```text
-sendtheobj.py → index.js → fakapiendpoint.js
-
 +-----------------+        +------------+        +----------------------+
 | sendtheobj.py   | -----> | index.js   | -----> | fakapiendpoint.js    |
 | (Python Script) |        | (Node.js)  |        | (Node.js Fake API)   |
