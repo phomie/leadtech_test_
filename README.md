@@ -92,6 +92,7 @@ This backend service is part of the LeadTech Test project. It consists of two No
 
 9. Testing Notes
   - I am testing in the index.js file the origin of the request.
-  - The background of my testing on origin and skipping the validation is because of different types of objects.
-  - I wasn’t sure what the purpose was of sending differently structured objects to the fake API endpoint.
+  - The background of my testing on origin and skipping the validation is because of different 
+    types of objects on the different tasks.
+  - I wasn’t sure, what the purpose was of sending differently structured objects to the fake API endpoint.
   - Now I can be sure both tasks are working. 🙂
