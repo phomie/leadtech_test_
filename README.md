@@ -29,6 +29,16 @@ roas_d7 = total_revenue_d7 / total_cost_d7
 
 ---
 
+#### 1. Created an new project in GCP
+![gcp Screenshot](././picsforreadme/createdproject.png)
+
+
+#### 2. Created dataset and  table with fakedata
+![gcp Screenshot](././picsforreadme/faketable.png)
+
+#### 3. Results of query
+![gcp Screenshot](././picsforreadme/resultsofsqlquery.png)
+
 #  Backend Service
 
 This backend service is part of the LeadTech Test project. It consists of two Node.js servers and a Python client script to send task-specific objects.
@@ -89,6 +99,7 @@ This backend service is part of the LeadTech Test project. It consists of two No
     - Check the consent box.
     - Paste an email address into the field.
     - Push the submit button
+    - You will find the data in the application memory tap of the devtools of chrome  
 
 9. Testing Notes
   - I am testing in the index.js file the origin of the request.
